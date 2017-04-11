@@ -4,9 +4,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Nancy;
 using Nancy.TinyIoc;
 using Nancy.Configuration;
-using LoggingService.Models;
 
-namespace MicroservicesDemo.FactorialService
+namespace LoggingService
 {
     public class Bootstrapper : DefaultNancyBootstrapper
     {
@@ -26,7 +25,6 @@ namespace MicroservicesDemo.FactorialService
         {
             base.ConfigureApplicationContainer(container);
             container.Register(_serviceProvider.GetService<ILoggerFactory>());
-            container.Register(_serviceProvider.GetService<ServiceClient<LogRequest, LogResponse>>());
         }
     }
 }
